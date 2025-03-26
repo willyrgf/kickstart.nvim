@@ -1,6 +1,7 @@
 local M = {}
 
 -- FIXME: move this to an appropriated place
+-- https://simondalvai.org/blog/godot-neovim/ # last update: 24. March 2025
 function M.custom_gdscript()
   -- paths to check for project.godot file
   local paths_to_check = { '/', '/../' }
