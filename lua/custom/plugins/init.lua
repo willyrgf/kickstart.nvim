@@ -1,14 +1,40 @@
 return {
   --- style
   {
-		'sainnhe/gruvbox-material',
-		lazy = false,
-		enabled = true,
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme 'gruvbox-material'
-		end,
-	},
+    'sainnhe/gruvbox-material',
+    lazy = false,
+    enabled = true,
+    priority = 100,
+    config = function()
+      vim.cmd.colorscheme 'gruvbox-material'
+    end,
+  },
+
+  --- overrides
+  -- treesitter
+  {
+    'nvim-treesitter',
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        'gdscript',
+        'godot_resource',
+        'gdshader',
+      })
+
+      opts.incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<CR>',
+          node_incremental = '<CR>',
+          node_decremental = '<BS>',
+          scope_incremental = '<TAB>',
+        },
+      }
+
+      return opts
+    end,
+  },
 
   --- utilities
   -- terminal as an popup window ctrl+t
@@ -43,5 +69,4 @@ return {
       },
     },
   },
-
 }
