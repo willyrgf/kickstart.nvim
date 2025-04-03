@@ -1,5 +1,5 @@
--- Entry point for custom configurations
-require('custom.options')
+local M = {}
 
-return {}
+require 'custom.options'
 
+return M
